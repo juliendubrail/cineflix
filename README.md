@@ -1,2 +1,0 @@
-# cineflix
-Created with CodeSandbox
