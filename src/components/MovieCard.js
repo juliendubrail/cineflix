@@ -1,6 +1,6 @@
 import React from "react";
 
-const MovieCard = ({ name, id, poster }) => {
+const MovieCard = ({ name, poster }) => {
   return (
     <div>
       <img alt="movies" src={`https://image.tmdb.org/t/p/w300/${poster}`} />
