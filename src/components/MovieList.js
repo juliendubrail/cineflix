@@ -1,7 +1,7 @@
 import React from "react";
 import MovieCard from "./MovieCard";
 
-const MoviesList = ({ movies, category }) => {
+const MoviesList = ({ category, movies }) => {
   return (
     <div className="container">
       <h2 className="category_title">{category}</h2>
