@@ -12,10 +12,10 @@ class App extends Component {
   };
 
   async componentDidMount() {
+    try {
     const recommendedMovies = await getData(RECOMENDATIONS);
     const actionMovies = await getData(ACTION_MOVIES);
     console.log(recommendedMovies);
-    try {
       this.setState({
         recommendedMovies,
         actionMovies
