@@ -14,11 +14,13 @@ body {
   width: 100%;
   display: flex;
   padding: 10px;
+  //top: 0;
+  //overflow: hidden;
   align-items: center;
   box-sizing: border-box;
   position: fixed;
   background-color: #0f0a3c;
-  z-index: 70;
+  z-index: 60;
 }
 
 .SearchBar h1 {
