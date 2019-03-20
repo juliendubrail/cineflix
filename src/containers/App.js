@@ -25,19 +25,34 @@ class App extends Component {
     }
   }
 
+  onInputChange = (event) =>{
+    this.setState({searchInput: event.target.value}, () => console.log(this.state.searchInput));
+  }
+
+
   render() {
-    const { recommendedMovies, actionMovies } = this.state;
+    const { recommendedMovies, actionMovies, searchInput } = this.state;
+    if(actionMovies != null & recommendedMovies != null){
+      console.log(recommendedMovies.concat(actionMovies));
+      const all = recommendedMovies.concat(actionMovies);
+      const filteredMovies =  actionMovies.filter(movie =>{return movie.title.toLowerCase().includes(searchInput.toLowerCase());});
+      return (
+        <div clasName="App">
+        <SearchBar   value={this.state.searchInput} onInputChange={this.onInputChange} />
+             <MovieList category={`ACTION`} movies={filteredMovies} />
+             <MovieList category={`DISCOVER`} movies={recommendedMovies} />
+        </div>
+      )
+    }
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar   value={this.state.searchInput} onInputChange={this.onInputChange} />
         {recommendedMovies && (
       <MovieList category={`DISCOVER`} movies={recommendedMovies} />
       )}
       {actionMovies && (
       <MovieList category={`ACTION`} movies={actionMovies} />
       )}
-{/*         <MovieList category={`DISCOVER`} movies={recommendedMovies} />
-        <MovieList category={`ACTION`} movies={actionMovies} /> */}
       </div>
     );
   }
